@@ -121,6 +121,16 @@ class SFN_Prune_Old_Users{
 
 	/**
 	 * Gets the users that are not activated.
+	 *
+	 * @since 1.0
+	 * @author SFNdesign, Curtis McHale
+	 *
+	 * @return array/obj     $users    The array of objects that are users
+	 *
+	 * @filter sfn_prune_how_many_users     Allows you to change the number of users to prune in a batch
+	 *
+	 * @uses $wpdb->prepare()          Makes our SQL queries safe
+	 * @uses $wpdb->get_results()      Gets the results from the DB class
 	 */
 	private function get_not_active_users(){
 
