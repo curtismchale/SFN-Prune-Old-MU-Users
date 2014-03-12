@@ -9,7 +9,7 @@ By default it will 'batch' users to 200 at at time and only look for users that 
 
 `sfn_prune_time_ago` Allows you to change the 2 weeks ago time to whatever you want. Expects a UNIX time stamp.
 
-`sfn_prune_how_many_users` Allows you to change the numder of users in a batch. Defaults to 200
+`sfn_prune_how_many_users` Allows you to change the number of users in a batch. Defaults to 200
 
 ### Changelog
 
