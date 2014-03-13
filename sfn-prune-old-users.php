@@ -138,7 +138,7 @@ class SFN_Prune_Old_Users{
 
 		$how_many = apply_filters( 'sfn_prune_how_many_users', 200 );
 
-		$query = $wpdb->prepare( "SELECT * FROM $wpdb->signups WHERE active = %d LIMIT %d", 0, $how_many );
+		$query = $wpdb->prepare( "SELECT * FROM $wpdb->signups WHERE active = %d LIMIT %d", 0, absint( $how_many ) );
 		$users = $wpdb->get_results( $query );
 
 		return $users;
