@@ -31,7 +31,6 @@ class SFN_Prune_Old_Users{
 	function __construct(){
 
 		add_action( 'sfn_prune_old_users', array( $this, 'prune_users' ) );
-		add_action( 'sfn_prune_old_users_single', array( $this, 'prune_users' ) );
 
 		add_action( 'admin_notices', array( $this, 'check_required' ) );
 
@@ -183,8 +182,7 @@ class SFN_Prune_Old_Users{
 		$scheduled = wp_next_scheduled( 'sfn_prune_old_users' );
 
 		if ( $scheduled == false ){
-			wp_schedule_single_event( time(), 'sfn_prune_old_users_single' );
-			wp_schedule_event( time(), 'daily', 'sfn_prune_old_users' );
+			wp_schedule_event( time(), 'hourly', 'sfn_prune_old_users' );
 		}
 
 	} // activate
@@ -200,7 +198,6 @@ class SFN_Prune_Old_Users{
 
 		if ( $scheduled == true ){
 			wp_clear_scheduled_hook( 'sfn_prune_old_users' );
-			wp_clear_scheduled_hook( 'sfn_prune_old_users_single' );
 		}
 
 	} // deactivate
