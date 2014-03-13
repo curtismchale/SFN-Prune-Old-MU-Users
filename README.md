@@ -9,7 +9,26 @@ By default it will 'batch' users to 200 at at time and only look for users that 
 
 `sfn_prune_time_ago` Allows you to change the 2 weeks ago time to whatever you want. Expects a UNIX time stamp.
 
+So if you wanted to only prune accounts that are a month old...
+
+```php
+function change_time_ago( $time ){
+	$time_ago = strototime( '1 month ago', time() );
+	return $time_ago;
+}
+add_filter( 'sfn_prune_time_ago', 'change_time_ago' );
+```
+
 `sfn_prune_how_many_users` Allows you to change the number of users in a batch. Defaults to 200
+
+If we wanted to prune 300 accounts at a time
+
+```php
+function prune_more_users( $number ){
+	return 300;
+}
+add_filter( 'sfn_prune_how_many_users', 'prune_more_users' );
+```
 
 ### Changelog
 
