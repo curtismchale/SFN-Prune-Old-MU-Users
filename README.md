@@ -3,7 +3,7 @@ SFN-Prune-Old-MU-Users
 
 This prunes old users from an MU site that have not acvitated their accounts.
 
-By default it will 'batch' users to 200 at at time and only look for users that are 2 weeks old. The main cron job runs daily so as long as you don't get more than 200 dead accounts a day this will catch up in a few days.
+By default it will 'batch' users to 200 at at time and only look for users that are 2 weeks old. The main cron job runs hourly so that you can catch up in short order if you have a bunch of accounts that are not activated.
 
 ### Filters
 
